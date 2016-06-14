@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Http;
 
-namespace HaxlSharp.WebApi
+namespace HaxlSharp.Demo.WebApi.App_Start
 {
     public static class WebApiConfig
     {
@@ -21,4 +22,5 @@ namespace HaxlSharp.WebApi
             );
         }
     }
+
 }

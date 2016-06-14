@@ -51,5 +51,15 @@ namespace HaxlSharp.Demo.Test
             var result = await _fetcher.Fetch(fetch);
         }
 
+        [TestMethod]
+        public async Task AllDetails()
+        {
+            await _fetcher.Fetch(
+                from postIds in DemoFetch.GetAllPostIds()
+                from viewed in postIds.SelectFetch(DemoFetch.GetPostDetails)
+                select viewed
+            );
+        }
+
     }
 }

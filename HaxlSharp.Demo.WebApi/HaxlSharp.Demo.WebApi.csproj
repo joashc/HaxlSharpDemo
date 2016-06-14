@@ -9,12 +9,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B2B25EDC-F0B3-4A68-880D-1697E1ED0E54}</ProjectGuid>
+    <ProjectGuid>{3D69C6DB-AAB8-4EEC-AA2A-7AFA5830CBE5}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HaxlSharp.WebApi</RootNamespace>
-    <AssemblyName>HaxlSharp.WebApi</AssemblyName>
+    <RootNamespace>HaxlSharp.Demo.WebApi</RootNamespace>
+    <AssemblyName>HaxlSharp.Demo.WebApi</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -43,12 +43,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HaxlSharp.Core, Version=0.1.6005.14693, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HaxlSharp.Core.0.1.6005.14693\lib\net452\HaxlSharp.Core.dll</HintPath>
+    <Reference Include="HaxlSharp, Version=0.1.6009.41572, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HaxlSharp.0.1.6009.41572\lib\net452\HaxlSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="HaxlSharp.Fetcher, Version=0.1.6005.14696, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HaxlSharp.Fetcher.0.1.6005.14696\lib\net452\HaxlSharp.Fetcher.dll</HintPath>
+    <Reference Include="HaxlSharp.Core, Version=0.1.6009.41571, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HaxlSharp.Core.0.1.6009.41571\lib\net452\HaxlSharp.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -58,6 +58,18 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector, Version=3.1.5.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.3.1.5\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Extensions.ExecutionContextScoping, Version=3.1.5.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Extensions.ExecutionContextScoping.3.1.5\lib\net45\SimpleInjector.Extensions.ExecutionContextScoping.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SimpleInjector.Integration.WebApi, Version=3.1.5.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.Integration.WebApi.3.1.5\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http" />
@@ -95,8 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Blog.cs" />
-    <Compile Include="Controllers\PostsController.cs" />
+    <Compile Include="DemoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -113,7 +124,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HaxlSharp.Demo.DataLayer\HaxlSharp.Demo.DataLayer.csproj">
+      <Project>{17b3f9ef-a573-4095-a21c-c1147b960bd0}</Project>
+      <Name>HaxlSharp.Demo.DataLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HaxlSharp.Demo.Models\HaxlSharp.Demo.Models.csproj">
+      <Project>{35346775-cedd-4008-9c5d-4afb7ba88570}</Project>
+      <Name>HaxlSharp.Demo.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -128,9 +150,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1737</DevelopmentServerPort>
+          <DevelopmentServerPort>1629</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1737/</IISUrl>
+          <IISUrl>http://localhost:1629/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
